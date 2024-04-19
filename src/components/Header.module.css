@@ -26,8 +26,8 @@ main {
     color: antiquewhite;
     max-height: 50px;
     margin: 0;
-    /* background-color: var(--cor-principal); */
     border-bottom: 4px solid var(--cor-principal);
+    /* background-color: var(--cor-principal); */
     /* border-style: solid;
     border-width: 4px;
     border-color: var(--cor-principal); */
@@ -46,7 +46,6 @@ main {
 .myEnergy {
     margin-left: 10px;
     color: var(--cor-principal2);
-    /* font-size: 3vw; */
 }
 
 .botoes {
@@ -68,6 +67,33 @@ main {
 
 .botao:hover {
     background-color: var(--cor-hover); /* Estilo para quando o mouse passa por cima */
+}
+
+@media screen and (max-width: 700px) {
+    .botoes {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-end;
+        gap: 0.4rem;
+    }
+
+    .cabecalho {
+        max-height: none;
+    }
+
+    .botao {
+        background-color: antiquewhite;
+        border: none;
+        padding: 0px;
+        color: var(--cor-principal);
+        border-radius: 0px;
+        border-bottom: 2px solid var(--cor-principal);
+    }
+
+    .botao:hover {
+        background-color: unset;
+    }
 }
 
 .botaoDisabled {

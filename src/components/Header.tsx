@@ -11,7 +11,7 @@ export function Header() {
             </div>
             <div className={styles.botoes}>
                 <div>
-                    <Link to='./home'><button id="botao-sobre-nos" className={styles.botao} type="button">Home</button></Link>
+                    <Link to=''><button id="botao-sobre-nos" className={styles.botao} type="button">Home</button></Link>
                     {/* <button id="botao-sobre-nos" className={styles.botao} type="button">Home</button> */}
                 </div>
                 <div>
@@ -19,8 +19,8 @@ export function Header() {
                     {/* <button id="botao-sobre-nos" className={styles.botao} type="button">Motivação</button> */}
                 </div>
                 <div>
-                    {/* <Link to=''><button id="botao-sobre-nos" className={`${styles.botao} ${styles.botaoDisabled}`} type="button">Simulador Energia Solar</button></Link> */}
-                    <button id="botao-sobre-nos" title="Em breve" className={`${styles.botao} ${styles.botaoDisabled}`} type="button">Simulador Energia Solar</button>
+                    <Link to='./simulacao'><button id="botao-sobre-nos" title="Em breve" className={`${styles.botao}`} type="button">Simulador Energia Solar</button></Link>
+                    {/* <button id="botao-sobre-nos" title="Em breve" className={`${styles.botao} ${styles.botaoDisabled}`} type="button">Simulador Energia Solar</button> */}
                 </div>
             </div>
         </div>
