@@ -10,13 +10,14 @@ import { CardDescricaoConsumo } from './components/CardDescricaoConsumo';
 import { CardValorFinal } from './components/CardValorFinal';
 import { CardAparelhosCadastrados } from './components/CardAparelhosCadastrados';
 import { Motivacao } from './components/Motivacao';
+import { Simulacao } from './components/Simulacao';
 import { Footer } from './components/Footer';
 import styles from './App.module.css';
 import './global.css';
-import { Simulacao } from './components/Simulacao';
 
 export function App() {
   const [registros, setRegistros] = useState<Registro[]>([]);
+  const [aparelhoEscolhido, setAparelhoEscolhido] = useState(['', '']);
   const valorKWH = 1.016800;
   const percentualIluminacaoPublica = 0.05941397141;
   let total = 0;
@@ -44,7 +45,6 @@ export function App() {
   return (
     <>
       <Header />
-      {/* <Banner /> */}
 
       <Routes>
 
@@ -52,8 +52,8 @@ export function App() {
           <div className={styles.corpo}>
           <Banner imagem={"https://energiaarion.com.br/wp-content/uploads/2019/02/lampada-de-energia-1024x559.jpg"} />
           <Frase />
-          <CardPotencias />
-          <CardCadastroAparelho registros={registros} setRegistros={setRegistros} />
+          <CardPotencias setAparelhoEscolhido={setAparelhoEscolhido} />
+          <CardCadastroAparelho registros={registros} setRegistros={setRegistros} aparelhoEscolhido={aparelhoEscolhido} setAparelhoEscolhido={setAparelhoEscolhido} />
           <CardDescricaoConsumo total={total} valorKWH={valorKWH} pil={percentualIluminacaoPublica} />
           <CardValorFinal total={totalFinal} />
           <CardAparelhosCadastrados registros={registros} handleRemoverRegistro={handleRemoverRegistro} total={total}/>

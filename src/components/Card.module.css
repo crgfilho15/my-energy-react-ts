@@ -170,7 +170,7 @@ tfoot tr:hover td:not(.semBorda) {
     border: none;
     /* padding: 5px; */
     border-radius: 5px;
-    /* cursor: pointer; */
+    cursor: pointer;
     background-color: var(--cor-principal);
     /* display: flex;
     align-items: center;

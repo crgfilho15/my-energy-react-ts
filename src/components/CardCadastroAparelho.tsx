@@ -5,7 +5,7 @@ import { tempoUsoMensal, kwhDiarioEMensal, verificacoesInputs, tempoUsoDiario } 
 
 let id = 0;
 
-export function CardCadastroAparelho({ registros, setRegistros }: { registros: Registro[]; setRegistros: AtualizarRegistrosFuncao; }) {
+export function CardCadastroAparelho({ registros, setRegistros, aparelhoEscolhido, setAparelhoEscolhido }: { registros: Registro[]; setRegistros: AtualizarRegistrosFuncao; aparelhoEscolhido: string[]; setAparelhoEscolhido: (novosRegistros: [string, string]) => void; }) {
     const nomeRef = useRef<HTMLInputElement>(null);
     const potenciaRef = useRef<HTMLInputElement>(null);
     const tempoHorasRef = useRef<HTMLInputElement>(null);
@@ -18,6 +18,12 @@ export function CardCadastroAparelho({ registros, setRegistros }: { registros: R
     //     // nomeRef.current.value = registroEdicao.nome;
     //     console.log(registroEdicao.nome);
     // }
+
+    if(aparelhoEscolhido[0] != '') {
+        // document.getElementById("campo-nome-aparelho").value = aparelhoEscolhido[0];
+        nomeRef.current.value = aparelhoEscolhido[0];
+        potenciaRef.current.value = aparelhoEscolhido[1];
+    }
 
     const handleNomeChange = () => {
         if (nomeRef.current) {
@@ -97,6 +103,7 @@ export function CardCadastroAparelho({ registros, setRegistros }: { registros: R
 
         id++;
 
+        setAparelhoEscolhido(['', '']);
         setRegistros([...registros, novoRegistro]);
 
         // console.log(registros);
