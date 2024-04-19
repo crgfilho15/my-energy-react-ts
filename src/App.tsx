@@ -1,4 +1,4 @@
-import {Route, Routes} from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import { useState } from 'react';
 import { Registro } from './components/Interfaces';
 import { Header } from './components/Header';
@@ -13,6 +13,7 @@ import { Motivacao } from './components/Motivacao';
 import { Footer } from './components/Footer';
 import styles from './App.module.css';
 import './global.css';
+import { Simulacao } from './components/Simulacao';
 
 export function App() {
   const [registros, setRegistros] = useState<Registro[]>([]);
@@ -47,7 +48,7 @@ export function App() {
 
       <Routes>
 
-        <Route path='/home' element={
+        <Route path='' element={
           <div className={styles.corpo}>
           <Banner imagem={"https://energiaarion.com.br/wp-content/uploads/2019/02/lampada-de-energia-1024x559.jpg"} />
           <Frase />
@@ -63,6 +64,13 @@ export function App() {
           <>
             <Banner imagem={"https://sunne.com.br/wp-content/uploads/2023/11/Imagem-Blog-su145.webp"} />
             <Motivacao />
+          </>
+        } />
+
+        <Route path='/simulacao' element={
+          <>
+            <Banner imagem={"https://mapa-da-obra-producao.s3.amazonaws.com/wp-content/uploads/2023/06/iStock-1405880267-scaled.jpg"} />
+            <Simulacao />
           </>
         } />
 

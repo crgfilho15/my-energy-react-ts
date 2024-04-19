@@ -93,6 +93,8 @@ main {
 
     .botao:hover {
         background-color: unset;
+        color: var(--cor-principal2);
+        border-bottom: 2px solid var(--cor-principal2);
     }
 }
 
