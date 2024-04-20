@@ -14,16 +14,34 @@ export function CardCadastroAparelho({ registros, setRegistros, aparelhoEscolhid
     const diasNoMes = 30;
 
     if(editarRegistro != null) {
-        nomeRef.current.value = editarRegistro.nome;
-        potenciaRef.current.value = editarRegistro.potencia;
-        tempoHorasRef.current.value = editarRegistro.tempoDeUsoDiario[0].tempo.substr(0, 2);
-        tempoMinutosRef.current.value = editarRegistro.tempoDeUsoDiario[0].tempo.substr(3, 2);
+        if (nomeRef.current) {
+            nomeRef.current.value = editarRegistro.nome;
+        }
+        if (potenciaRef.current) {
+            potenciaRef.current.value = editarRegistro.potencia;
+        }
+        if (tempoHorasRef.current) {
+            tempoHorasRef.current.value = editarRegistro.tempoDeUsoDiario[0].tempo.substr(0, 2);
+        }
+        if (tempoMinutosRef.current) {
+            tempoMinutosRef.current.value = editarRegistro.tempoDeUsoDiario[0].tempo.substr(3, 2);
+        }
+        // nomeRef.current.value = editarRegistro.nome;
+        // potenciaRef.current.value = editarRegistro.potencia;
+        // tempoHorasRef.current.value = editarRegistro.tempoDeUsoDiario[0].tempo.substr(0, 2);
+        // tempoMinutosRef.current.value = editarRegistro.tempoDeUsoDiario[0].tempo.substr(3, 2);
     }
 
     if(aparelhoEscolhido[0] != '') {
+        if (nomeRef.current) {
+            nomeRef.current.value = aparelhoEscolhido[0];
+        }
+        if (potenciaRef.current) {
+            potenciaRef.current.value = aparelhoEscolhido[1];
+        }
+        // nomeRef.current.value = aparelhoEscolhido[0];
+        // potenciaRef.current.value = aparelhoEscolhido[1];
         // document.getElementById("campo-nome-aparelho").value = aparelhoEscolhido[0];
-        nomeRef.current.value = aparelhoEscolhido[0];
-        potenciaRef.current.value = aparelhoEscolhido[1];
     }
 
     const handleNomeChange = () => {
