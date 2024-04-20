@@ -17,7 +17,7 @@ import './global.css';
 
 export function App() {
   const [registros, setRegistros] = useState<Registro[]>([]);
-  const [editarRegistro, setEditarRegistro] = useState<Registro[] | null>(null);
+  const [editarRegistro, setEditarRegistro] = useState<Registro | null>(null);
   const [aparelhoEscolhido, setAparelhoEscolhido] = useState(['', '']);
   const valorKWH = 1.016800;
   const percentualIluminacaoPublica = 0.05941397141;

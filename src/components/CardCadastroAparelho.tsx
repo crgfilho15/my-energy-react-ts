@@ -5,7 +5,7 @@ import { tempoUsoMensal, kwhDiarioEMensal, verificacoesInputs, tempoUsoDiario } 
 
 let id = 0;
 
-export function CardCadastroAparelho({ registros, setRegistros, aparelhoEscolhido, setAparelhoEscolhido, setEditarRegistro, editarRegistro }: { registros: Registro[]; setRegistros: AtualizarRegistrosFuncao; aparelhoEscolhido: string[]; setAparelhoEscolhido: (novosRegistros: [string, string]) => void; setEditarRegistro: (Registro: Registro[] | null) => void; editarRegistro: Registro[] | null; }) {
+export function CardCadastroAparelho({ registros, setRegistros, aparelhoEscolhido, setAparelhoEscolhido, setEditarRegistro, editarRegistro }: { registros: Registro[]; setRegistros: AtualizarRegistrosFuncao; aparelhoEscolhido: string[]; setAparelhoEscolhido: (novosRegistros: [string, string]) => void; setEditarRegistro: (arg0: Registro | null) => void; editarRegistro: Registro | null; }) {
     const nomeRef = useRef<HTMLInputElement>(null);
     const potenciaRef = useRef<HTMLInputElement>(null);
     const tempoHorasRef = useRef<HTMLInputElement>(null);
