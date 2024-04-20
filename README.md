@@ -4,6 +4,9 @@
 
 O My Energy é um projeto que visa ajudar os usuários a estimarem o consumo de energia de seus aparelhos eletrônicos em suas casas. Os usuários podem cadastrar os aparelhos eletrônicos que possuem em suas casas e informar a quantidade de horas médias de uso por dia. Com base nessas informações, o My Energy calcula uma estimativa do consumo de energia mensal para cada aparelho e também o consumo total da residência.
 
+## Utilize o My Energy:
+Acesse https://my-energy-react-ts.vercel.app/
+
 ## Recursos (projeto em desenvolvimento)
 
 - [x] Desenvolvimento do front-end
