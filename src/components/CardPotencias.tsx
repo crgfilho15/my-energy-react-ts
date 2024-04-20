@@ -57,7 +57,7 @@ export function CardPotencias({ setAparelhoEscolhido }: {setAparelhoEscolhido: (
                                     <tr key={a.title}>
                                         <td>{a.title}</td>
                                         <td>{`${a.power}W`}</td>
-                                        <td onClick={() => handleAparelhoEscolhido(a.title, a.power)} id="botaoTabela botaoEditar" title="Selecionar" className={`${styles.botaoSelect}`}> <Check size={20} /> </td>
+                                        <td onClick={() => handleAparelhoEscolhido(a.title, a.power)} id="botaoTabela botaoEditar" title="Adicionar Aparelho" className={`${styles.botaoSelect}`}> <Check size={20} /> </td>
                                     </tr>
                                 );
                             })}

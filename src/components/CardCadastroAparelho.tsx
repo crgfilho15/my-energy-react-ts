@@ -5,7 +5,7 @@ import { tempoUsoMensal, kwhDiarioEMensal, verificacoesInputs, tempoUsoDiario } 
 
 let id = 0;
 
-export function CardCadastroAparelho({ registros, setRegistros, aparelhoEscolhido, setAparelhoEscolhido }: { registros: Registro[]; setRegistros: AtualizarRegistrosFuncao; aparelhoEscolhido: string[]; setAparelhoEscolhido: (novosRegistros: [string, string]) => void; }) {
+export function CardCadastroAparelho({ registros, setRegistros, aparelhoEscolhido, setAparelhoEscolhido, setEditarRegistro, editarRegistro }: { registros: Registro[]; setRegistros: AtualizarRegistrosFuncao; aparelhoEscolhido: string[]; setAparelhoEscolhido: (novosRegistros: [string, string]) => void; setEditarRegistro: (Registro: Registro[] | null) => void; editarRegistro: Registro[] | null; }) {
     const nomeRef = useRef<HTMLInputElement>(null);
     const potenciaRef = useRef<HTMLInputElement>(null);
     const tempoHorasRef = useRef<HTMLInputElement>(null);
@@ -13,11 +13,12 @@ export function CardCadastroAparelho({ registros, setRegistros, aparelhoEscolhid
     const valorKWH = 1.016800;
     const diasNoMes = 30;
 
-    // if(setRegistroSelecionado != undefined) {
-    //     const registroEdicao = setRegistroSelecionado;
-    //     // nomeRef.current.value = registroEdicao.nome;
-    //     console.log(registroEdicao.nome);
-    // }
+    if(editarRegistro != null) {
+        nomeRef.current.value = editarRegistro.nome;
+        potenciaRef.current.value = editarRegistro.potencia;
+        tempoHorasRef.current.value = editarRegistro.tempoDeUsoDiario[0].tempo.substr(0, 2);
+        tempoMinutosRef.current.value = editarRegistro.tempoDeUsoDiario[0].tempo.substr(3, 2);
+    }
 
     if(aparelhoEscolhido[0] != '') {
         // document.getElementById("campo-nome-aparelho").value = aparelhoEscolhido[0];
@@ -103,6 +104,7 @@ export function CardCadastroAparelho({ registros, setRegistros, aparelhoEscolhid
 
         id++;
 
+        setEditarRegistro(null);
         setAparelhoEscolhido(['', '']);
         setRegistros([...registros, novoRegistro]);
 
@@ -133,7 +135,7 @@ export function CardCadastroAparelho({ registros, setRegistros, aparelhoEscolhid
                     <input id="campo-tempo-uso-minutos-aparelho" className={styles.inputQuadro} type="number" min="0" ref={tempoMinutosRef}></input>
                 </div>
                 <div className={styles.quadroBotao}>
-                    <button id="botao_cadastrar" className={styles.botao} type="button" onClick={handleCadastro}>Cadastrar</button>
+                    <button id="botao_cadastrar" className={styles.botao} type="button" onClick={handleCadastro}>{editarRegistro == null ? 'Cadastrar' : 'Editar'}</button>
                 </div>
             </div>
         </div>

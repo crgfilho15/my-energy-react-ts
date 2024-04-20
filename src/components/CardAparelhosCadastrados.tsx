@@ -2,17 +2,15 @@ import styles from './Card.module.css';
 import { Trash, Pencil } from 'phosphor-react';
 import { Registro } from './Interfaces';
 
-export function CardAparelhosCadastrados({ registros, handleRemoverRegistro, total }: { registros: Registro[]; handleRemoverRegistro: {(arg0:number):void}; total: number }) {
+export function CardAparelhosCadastrados({ registros, handleRemoverRegistro, total, handleEditarRegistro }: { registros: Registro[]; handleRemoverRegistro: {(arg0:number):void}; total: number; handleEditarRegistro: (arg0: number) => void; }) {
 
     function handleExcluir(id: number) {
         handleRemoverRegistro(id);
-        // console.log(registros);
     }
 
-    // function handleEditar(id: number) {
-    //     handleEditarRegistro(id);
-        // console.log(registros);
-    // }
+    function handleEditar(id: number) {
+        handleEditarRegistro(id);
+    }
 
     return (
         //    Quadro de Exibição de Aparelhos Cadastrados
@@ -47,7 +45,7 @@ export function CardAparelhosCadastrados({ registros, handleRemoverRegistro, tot
                                         <td>{`${registro.tempoDeUsoMensal[0].tempo} ${registro.tempoDeUsoMensal[0].tipo}`}</td>
                                         <td>{registro.kwh[1].quantidade.toFixed(2)}</td>
                                         <td>{`R$${registro.kwh[1].valor.toFixed(2)}/mês`}</td>
-                                        <td id="botaoTabela botaoEditar" title="Em breve" className={`${styles.botaoTabela} ${styles.botaoEditar} ${styles.botaoDisabled}`}> <Pencil size={20} /> </td>
+                                        <td id="botaoTabela botaoEditar" title="Editar registro" onClick={() => handleEditar(registro.id)} className={`${styles.botaoTabela} ${styles.botaoEditar}`}> <Pencil size={20} /> </td>
                                         <td id="botaoTabela botaoExcluir" title="Excluir registro" onClick={() => handleExcluir(registro.id)} className={`${styles.botaoTabela} ${styles.botaoExcluir}`}> <Trash size={20} /> </td>
                                     </tr>
                                 );
